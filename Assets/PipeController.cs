@@ -50,4 +50,10 @@ public class PipeController : MonoBehaviour {
 		}
 		rightmostColumnIndex = numberOfPipes - 1;
 	}
+
+	public void StopScrolling(){
+		foreach(GameObject pipePair in pipePairsArray){
+			pipePair.GetComponent<PipeMover>().StopScrolling();
+		}
+	}
 }

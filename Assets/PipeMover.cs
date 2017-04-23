@@ -11,12 +11,22 @@ public class PipeMover : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		moveSpeed = FindObjectOfType<BackgroundController>().scrollSpeed;
+
 		rb2d = GetComponent<Rigidbody2D>();
-		rb2d.velocity = new Vector2(-moveSpeed, 0);
+		StartScrolling();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+	public void StopScrolling(){
+		rb2d.velocity = Vector2.zero;
+	}
+
+	public void StartScrolling(){
+		rb2d.velocity = new Vector2(-moveSpeed, 0);
+	}
+
 }

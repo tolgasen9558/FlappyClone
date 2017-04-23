@@ -26,4 +26,8 @@ public class BackgroundController : MonoBehaviour {
 	void Reposition(){
 		transform.position += new Vector3(backgroundWidth * 2f, 0, 0);
 	}
+
+	public void StopScrolling(){
+		rb2d.velocity = Vector2.zero;
+	}
 }
