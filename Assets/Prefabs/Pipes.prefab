@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4804310927204308}
   - component: {fileID: 50098962031810624}
+  - component: {fileID: 61759194050065560}
   - component: {fileID: 114712303675986412}
   m_Layer: 0
   m_Name: Pipes
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -146,11 +147,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.8, y: 8.192}
+--- !u!61 &61759194050065560
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451189708166488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.6}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.6}
 --- !u!114 &114712303675986412
 MonoBehaviour:
   m_ObjectHideFlags: 1

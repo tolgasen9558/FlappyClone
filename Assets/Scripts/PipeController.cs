@@ -20,7 +20,7 @@ public class PipeController : MonoBehaviour {
 		cameraWidth = Camera.main.orthographicSize * 2f * Camera.main.aspect;
 		pipePairsArray = new List<GameObject>();
 		numberOfPipes = Mathf.CeilToInt(cameraWidth / distanceInbetween);
-		initializePipes(cameraWidth / 2 * 1.5f);
+		initializePipes(cameraWidth / 2);
 	}
 
 	// Update is called once per frame

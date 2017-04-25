@@ -8,6 +8,7 @@ public class MyBird : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 	private GameController gameController;
+	public bool isDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class MyBird : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetKeyDown(KeyCode.Space) && isDead == false){
 			Jump();
 		}
 	}
@@ -27,13 +28,11 @@ public class MyBird : MonoBehaviour {
 	}
 
 	public void Die(){
+		isDead = true;
 		rb2d.velocity = Vector2.zero;
 	}
 
-	public void OnTriggerEnter2D(Collider2D other){
-		print(other.gameObject.tag);
-		if(other.gameObject.CompareTag("Pipe")){
-			gameController.BirdDie();
-		}
+	public void OnCollisionEnter2D(Collision2D collision){
+		gameController.BirdDie();
 	}
 }
