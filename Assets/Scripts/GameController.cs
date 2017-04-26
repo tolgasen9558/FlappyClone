@@ -8,12 +8,13 @@ public class GameController : MonoBehaviour {
 
 	public PipeController pipeController;
 	public MyBird bird;
+	public GameObject panel;
+	public Animation flashAnimation;
 
-	[SerializeField]
 	public Text scoreText;
-	[SerializeField]
 	public Text gameOverText;
 
+	private bool inputEnabled = true;
 	private int score = 0;
 	private BackgroundController[] backgrounds;
 
@@ -26,7 +27,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(bird.isDead){
+		if(bird.isDead && inputEnabled){
 			if(Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)){
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			}
@@ -34,12 +35,22 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void BirdDie(){
+		inputEnabled = false;
+		if(bird.isDead == true){
+			return;
+		}
 		bird.Die();
 		pipeController.StopScrolling();
 		foreach(BackgroundController background in backgrounds){
 			background.StopScrolling();
 		}
+		panel.GetComponent<Animator>().SetTrigger("flash_trigger");
+		Invoke("SetGameOverVisible", 2f);
+	}
+
+	private void SetGameOverVisible(){
 		gameOverText.enabled = true;
+		inputEnabled = true;
 	}
 
 	public void Score(){

@@ -10,7 +10,7 @@ public class PipeController : MonoBehaviour {
 	private float pipeWidth;
 	private float cameraWidth;
 	private int rightmostColumnIndex;
-	private float distanceInbetween = 10f;
+	private float distanceInbetween = 6f;
 	private int numberOfPipes;
 
 
@@ -20,7 +20,7 @@ public class PipeController : MonoBehaviour {
 		cameraWidth = Camera.main.orthographicSize * 2f * Camera.main.aspect;
 		pipePairsArray = new List<GameObject>();
 		numberOfPipes = Mathf.CeilToInt(cameraWidth / distanceInbetween);
-		initializePipes(cameraWidth / 2);
+		initializePipes(cameraWidth);
 	}
 
 	// Update is called once per frame
